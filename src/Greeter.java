@@ -39,4 +39,19 @@ public class Greeter implements Runnable {
             System.out.println("Witaj, " + targetName);
         }
     }
+
+    // metoda uruchamiająca każde zadanie w oddzielnym wątku
+    public static void runTogether(Runnable... tasks) {
+        for (Runnable n : tasks) {
+            Thread thread = new Thread(n);
+            thread.start();
+        }
+    }
+
+    // metoda uruchamiająca wszystkie zadania w bieżącym wątku
+    public static void runInOrder(Runnable... tasks) {
+        for (Runnable n : tasks) {
+            n.run();
+        }
+    }
 }

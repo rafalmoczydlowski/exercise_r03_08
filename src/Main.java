@@ -4,10 +4,10 @@ public class Main {
         int count = new Greeter().setRepeatNumber();
 
         Runnable eloszki = new Greeter(count, name1);
-        eloszki.run();
-
         Runnable eloszki2 = new Greeter(6, "Kamil");
-        Thread thread = new Thread(eloszki2); // wywołanie metody run() w nowym wątku
-        thread.start();
+
+        Greeter.runInOrder(eloszki, eloszki2);
+        System.out.println("============================");
+        Greeter.runTogether(eloszki, eloszki2);
     }
 }
